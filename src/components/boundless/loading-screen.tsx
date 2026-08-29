@@ -8,11 +8,6 @@ interface LoadingScreenProps {
   onComplete: () => void;
 }
 
-/**
- * Elegant interstitial, not a theatre piece: a small ring, a plain
- * sentence, and a checklist that advances step by step so the wait
- * feels explained rather than performed.
- */
 export function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [doneCount, setDoneCount] = useState(0);
 

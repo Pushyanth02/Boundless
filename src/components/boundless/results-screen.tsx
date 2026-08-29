@@ -55,7 +55,6 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
         <span className="block-meta">Sample analysis</span>
       </div>
 
-      {/* ── Header + score ──────────────────────────────────── */}
       <h1 className="results-title" id="screen-title" tabIndex={-1}>
         Your match for {DEMO.role}
       </h1>
@@ -99,15 +98,10 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
         </div>
       </section>
 
-      {/* ── Matched skills ──────────────────────────────────── */}
-      <section className="block" aria-labelledby="matched-heading">
+      <section className="block" aria-labelledby="skills-heading">
         <div className="block-head">
-          <h2 className="h2" id="matched-heading">
-            You already match
-          </h2>
-          <span className="block-meta">
-            {DEMO.matchedSkills.length} skills detected
-          </span>
+          <h2 className="h2" id="skills-heading">Skills</h2>
+          <span className="block-meta">{DEMO.matchedSkills.length} matched</span>
         </div>
         <ul className="chip-row stagger">
           {DEMO.matchedSkills.map((skill, i) => (
@@ -123,22 +117,16 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
         </ul>
       </section>
 
-      {/* ── Missing skills ──────────────────────────────────── */}
-      <section className="block" aria-labelledby="missing-heading">
+      <section className="block" aria-labelledby="gaps-heading">
         <div className="block-head">
-          <h2 className="h2" id="missing-heading">
-            Skills worth strengthening
-          </h2>
-          <span className="block-meta">{DEMO.missingSkills.length} gaps found</span>
+          <h2 className="h2" id="gaps-heading">Skill gaps</h2>
+          <span className="block-meta">{DEMO.missingSkills.length} worth addressing</span>
         </div>
-        <p className="block-sub">
-          Open a skill to see why it matters and how to address it.
-        </p>
         <div className="gap-list">
           {DEMO.missingSkills.map((skill) => (
             <button
-              className="gap-row"
               key={skill.name}
+              className="gap-item"
               onClick={() => onOpenSkill(skill)}
               aria-haspopup="dialog"
             >
@@ -160,7 +148,6 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
         </div>
       </section>
 
-      {/* ── Keyword alignment ───────────────────────────────── */}
       <section className="block" aria-labelledby="keywords-heading">
         <div className="block-head">
           <h2 className="h2" id="keywords-heading">
@@ -183,7 +170,6 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
           {DEMO.keywords.found.length} of {keywords.length} keywords from the
           posting appear in your resume.
         </p>
-        {/* key={filter} restarts the stagger when the filter changes */}
         <ul className="chip-row stagger" key={filter}>
           {visible.map((item, i) => (
             <li
@@ -202,7 +188,6 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
         </ul>
       </section>
 
-      {/* ── Recommendations ─────────────────────────────────── */}
       <section className="block" aria-labelledby="recs-heading">
         <div className="block-head">
           <h2 className="h2" id="recs-heading">
@@ -225,7 +210,6 @@ export function ResultsScreen({ onOpenSkill, onNewAnalysis }: ResultsScreenProps
         </ol>
       </section>
 
-      {/* ── Next step ───────────────────────────────────────── */}
       <div className="results-cta">
         <button className="btn btn-primary btn-lg" onClick={onNewAnalysis}>
           Analyze another role

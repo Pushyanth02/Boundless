@@ -2,11 +2,6 @@
 
 import type { Screen } from "./types";
 
-/**
- * The Boundless mark: two overlapping circles.
- * One circle is the resume, the other is the role. The overlap is the match.
- * A single geometric stroke, no more.
- */
 export function OverlapMark({ size = 20 }: { size?: number }) {
   return (
     <svg
@@ -38,7 +33,6 @@ export function SiteHeader({
   onAbout,
   onStart,
 }: SiteHeaderProps) {
-  // During analysis the header stays calm: no call to action.
   const showCta = screen !== "loading";
   const ctaLabel = screen === "results" ? "New analysis" : "Start analysis";
 

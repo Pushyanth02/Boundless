@@ -1,14 +1,3 @@
-/* ══════════════════════════════════════════════════════════════════
-   BOUNDLESS · Demo data
-   This build is a UI/UX prototype: every number and string below is
-   realistic sample data. No resume is parsed and no AI is called.
-   Keeping the data here separate from UI logic means the prototype
-   can be explained (and later swapped for a real engine) cleanly.
-
-   Persona: a student with full-stack coursework and projects,
-   targeting a Full Stack Developer role.
-   ══════════════════════════════════════════════════════════════════ */
-
 export type Priority = "high" | "medium" | "low";
 
 export interface ResumeFile {
@@ -19,9 +8,7 @@ export interface ResumeFile {
 export interface MissingSkill {
   name: string;
   priority: Priority;
-  /** One-line reason shown in the results list */
   why: string;
-  /** Full detail shown in the drawer */
   detail: {
     why: string;
     detected: string;

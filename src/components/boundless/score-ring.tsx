@@ -3,19 +3,12 @@
 import { useEffect, useState } from "react";
 
 interface ScoreRingProps {
-  /** Match score, 0-100 */
   value: number;
-  /** Short verdict read out to screen readers */
   label: string;
   size?: number;
   stroke?: number;
 }
 
-/**
- * Radial match score. The ring draws in over ~900ms while the number
- * counts up, so the score reads as a conclusion being reached rather
- * than a slot-machine result. Reduced motion: both settle instantly.
- */
 export function ScoreRing({ value, label, size = 232, stroke = 10 }: ScoreRingProps) {
   const [drawn, setDrawn] = useState(false);
   const [display, setDisplay] = useState(0);

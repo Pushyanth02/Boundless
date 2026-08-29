@@ -10,7 +10,6 @@ interface LandingProps {
   onSeeHow: () => void;
 }
 
-/** What sets Boundless apart from typical ATS checkers. */
 const DIFFERENTIATORS = [
   {
     title: "A score you can audit",
@@ -34,7 +33,6 @@ const DIFFERENTIATORS = [
   },
 ] as const;
 
-/** Miniature of the real results UI, used as the hero preview. */
 function PreviewCard() {
   const entered = useEntered();
 
@@ -84,7 +82,6 @@ function PreviewCard() {
 export function Landing({ onStart, onSeeHow }: LandingProps) {
   return (
     <div className="screen">
-      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="stagger">
@@ -92,19 +89,24 @@ export function Landing({ onStart, onSeeHow }: LandingProps) {
               Resume intelligence
             </p>
             <h1 className="display" style={{ "--i": 1 } as React.CSSProperties}>
-              Know how well your resume matches the job.
+              Know your match
+              <br />
+              before you apply.
             </h1>
-            <p className="lede" style={{ "--i": 2 } as React.CSSProperties}>
-              Upload your resume, paste the job description, and discover your
-              strengths, gaps, and opportunities before you apply.
+            <p className="subhead" style={{ "--i": 2 } as React.CSSProperties}>
+              Upload your resume, paste a job description, and get a match score,
+              breakdown, and concrete next steps — in under a minute.
             </p>
             <div className="hero-cta" style={{ "--i": 3 } as React.CSSProperties}>
-              <button className="btn btn-primary btn-lg" onClick={onStart}>
+              <button
+                className="btn btn-primary"
+                onClick={onStart}
+              >
                 Analyze my resume
-                <ArrowRight size={18} strokeWidth={1.75} aria-hidden="true" />
+                <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
               </button>
-              <button className="btn btn-ghost btn-lg" onClick={onSeeHow}>
-                See how it works
+              <button className="btn btn-ghost" onClick={onSeeHow}>
+                How it works
               </button>
             </div>
           </div>
@@ -113,7 +115,6 @@ export function Landing({ onStart, onSeeHow }: LandingProps) {
         </div>
       </section>
 
-      {/* ── How it works ─────────────────────────────────────── */}
       <section className="section" id="how-it-works" style={{ scrollMarginTop: 88 }}>
         <div className="wrap">
           <div className="block-head">
@@ -149,7 +150,6 @@ export function Landing({ onStart, onSeeHow }: LandingProps) {
         </div>
       </section>
 
-      {/* ── Why different ─────────────────────────────────────── */}
       <section className="section" id="why-boundless" style={{ scrollMarginTop: 88 }}>
         <div className="wrap">
           <div className="block-head">
@@ -177,7 +177,6 @@ export function Landing({ onStart, onSeeHow }: LandingProps) {
         </div>
       </section>
 
-      {/* ── About ────────────────────────────────────────────── */}
       <section className="section" id="about" style={{ scrollMarginTop: 88 }}>
         <div className="wrap">
           <h2 className="h2">About Boundless</h2>

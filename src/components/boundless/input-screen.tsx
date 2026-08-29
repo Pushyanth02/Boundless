@@ -48,8 +48,6 @@ export function InputScreen({
   const jdLen = jd.trim().length;
   const dragging = dragDepth > 0;
 
-  /* ── File handling ─────────────────────────────────────────── */
-
   const acceptFile = (file: File) => {
     const isSupported = /\.(pdf|docx?)$/i.test(file.name);
     const isSmallEnough = file.size <= MAX_RESUME_MB * 1024 * 1024;
@@ -79,8 +77,6 @@ export function InputScreen({
     onResumeFile({ ...DEMO.demoResume });
   };
 
-  /* ── Validation + submit ───────────────────────────────────── */
-
   const handleAnalyze = () => {
     if (processing) return;
 
@@ -98,7 +94,6 @@ export function InputScreen({
     setShowJdError(true);
 
     if (nextFileError || nextJdError) {
-      // Guide the eye to the first thing that needs attention.
       const target = nextFileError ? zoneRef.current : jdRef.current;
       target?.scrollIntoView({ behavior: "smooth", block: "center" });
       target?.focus({ preventScroll: true });
@@ -109,8 +104,6 @@ export function InputScreen({
     setMessageIndex(0);
   };
 
-  /* Processing: the button swaps to rotating, meaningful states.
-     No fake percentages, just what the analysis is doing. */
   useEffect(() => {
     if (!processing) return;
     const timers: number[] = [];
@@ -149,7 +142,6 @@ export function InputScreen({
       </p>
 
       <div className="input-grid">
-        {/* ── Resume panel ─────────────────────────────────── */}
         <section className="panel" aria-label="Resume upload">
           <div className="field-head">
             <span className="field-label">Resume</span>
@@ -274,7 +266,6 @@ export function InputScreen({
           />
         </section>
 
-        {/* ── Job description panel ────────────────────────── */}
         <section className="panel" aria-label="Job description">
           <div className="field-head">
             <label className="field-label" htmlFor="jd-input">
@@ -323,7 +314,6 @@ export function InputScreen({
         </section>
       </div>
 
-      {/* ── Analyze CTA ─────────────────────────────────────── */}
       <div className="analyze-bar">
         <button
           className="btn btn-primary btn-lg"

@@ -10,13 +10,6 @@ import { SiteFooter, SiteHeader } from "@/components/boundless/site-chrome";
 import type { Screen } from "@/components/boundless/types";
 import type { MissingSkill, ResumeFile } from "@/components/boundless/data";
 
-/**
- * Boundless
- *
- * One page, five states: landing, input, loading, results, plus a detail
- * drawer. State lives here at the top so "New analysis" can return you to
- * the input screen with your resume and job description intact.
- */
 export default function Page() {
   const [screen, setScreen] = useState<Screen>("landing");
   const [resumeFile, setResumeFile] = useState<ResumeFile | null>(null);
@@ -30,8 +23,6 @@ export default function Page() {
     window.scrollTo(0, 0);
   }, []);
 
-  // After a screen change, move focus to its heading so keyboard and
-  // screen-reader users land in the new context (not skipped on load).
   useEffect(() => {
     if (firstRender.current) {
       firstRender.current = false;

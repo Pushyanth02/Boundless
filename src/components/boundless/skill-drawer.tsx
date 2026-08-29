@@ -6,7 +6,6 @@ import type { MissingSkill } from "./data";
 
 interface SkillDrawerProps {
   skill: MissingSkill | null;
-  /** Called after the exit animation finishes so the parent can unmount. */
   onExit: () => void;
 }
 
@@ -16,10 +15,6 @@ const PRIORITY_LABEL: Record<MissingSkill["priority"], string> = {
   low: "Low priority",
 };
 
-/**
- * Missing-skill detail. Desktop: a side drawer. Mobile: a bottom sheet.
- * The same honest rule applies everywhere: suggest, never fabricate.
- */
 export function SkillDrawer({ skill, onExit }: SkillDrawerProps) {
   const [rendered, setRendered] = useState(false);
   const [open, setOpen] = useState(false);
@@ -31,7 +26,6 @@ export function SkillDrawer({ skill, onExit }: SkillDrawerProps) {
   const openRef = useRef(false);
 
   const close = () => {
-    // openRef (not state) so the stale keydown closure can't bail early
     if (!openRef.current) return;
     openRef.current = false;
     setOpen(false);
@@ -47,7 +41,6 @@ export function SkillDrawer({ skill, onExit }: SkillDrawerProps) {
     let raf2 = 0;
     const focusTimer: number[] = [];
 
-    // Two frames: render the panel closed, then slide it open.
     raf1 = requestAnimationFrame(() => {
       setRendered(true);
       raf2 = requestAnimationFrame(() => {
@@ -67,7 +60,6 @@ export function SkillDrawer({ skill, onExit }: SkillDrawerProps) {
         close();
         return;
       }
-      // Minimal focus trap: keep Tab inside the dialog.
       if (e.key === "Tab" && panelRef.current) {
         const focusables = panelRef.current.querySelectorAll<HTMLElement>(
           'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])',

@@ -89,9 +89,9 @@ export function Landing({ onStart, onSeeHow }: LandingProps) {
               Resume intelligence
             </p>
             <h1 className="display" style={{ "--i": 1 } as React.CSSProperties}>
-              Know your match
+              Your resume, scored.
               <br />
-              before you apply.
+              Your gaps, mapped.
             </h1>
             <p className="subhead" style={{ "--i": 2 } as React.CSSProperties}>
               Upload your resume, paste a job description, and get a match score,

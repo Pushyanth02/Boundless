@@ -9,3 +9,10 @@ next-env.d.ts
 .local-*
 .claude
 .z-ai-config
+
+# env & database
+.env
+.env.local
+*.db
+*.db-journal
+prisma/dev.db
